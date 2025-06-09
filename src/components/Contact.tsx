@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Mail, Phone, Github, Linkedin } from 'lucide-react';
-import { toast } from '@/components/ui/use-toast';
+import { toast } from '@/hooks/use-toast';
 import emailjs from '@emailjs/browser';
 
 const Contact = () => {
@@ -19,11 +19,25 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
+    console.log('Form submission started');
+    console.log('Form data:', formData);
+
     try {
       // EmailJS configuration
       const serviceId = 'service_kq3skks';
       const templateId = 'template_po6mwn7';
       const publicKey = 'vSU38UV9_3z_vbzW5';
+
+      // Validate form data
+      if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+        toast({
+          title: "Validation Error",
+          description: "Please fill in all required fields.",
+          variant: "destructive",
+        });
+        setIsSubmitting(false);
+        return;
+      }
 
       // Prepare template parameters
       const templateParams = {
@@ -31,6 +45,7 @@ const Contact = () => {
         from_email: formData.email,
         message: formData.message,
         to_name: 'Samir Makwana',
+        reply_to: formData.email,
       };
 
       console.log('Sending email with EmailJS...', templateParams);
@@ -45,14 +60,19 @@ const Contact = () => {
 
       console.log('Email sent successfully:', response);
 
-      // Show success toast
-      toast({
-        title: "Message Sent Successfully!",
-        description: "Thank you for your message. I'll get back to you soon.",
-      });
+      if (response.status === 200) {
+        // Show success toast
+        toast({
+          title: "Message Sent Successfully!",
+          description: "Thank you for your message. I'll get back to you soon.",
+        });
 
-      // Reset form
-      setFormData({ name: '', email: '', message: '' });
+        // Reset form
+        setFormData({ name: '', email: '', message: '' });
+        console.log('Form reset successfully');
+      } else {
+        throw new Error(`EmailJS returned status: ${response.status}`);
+      }
 
     } catch (error) {
       console.error('EmailJS error:', error);
@@ -65,6 +85,7 @@ const Contact = () => {
       });
     } finally {
       setIsSubmitting(false);
+      console.log('Form submission completed');
     }
   };
 
