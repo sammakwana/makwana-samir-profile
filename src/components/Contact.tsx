@@ -1,0 +1,189 @@
+
+import { useState } from 'react';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Mail, Phone, Github, Linkedin } from 'lucide-react';
+
+const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Here you would typically handle form submission
+    console.log('Form submitted:', formData);
+    // Reset form
+    setFormData({ name: '', email: '', message: '' });
+    alert('Thank you for your message! I\'ll get back to you soon.');
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  return (
+    <section id="contact" className="py-20 bg-background">
+      <div className="container mx-auto px-6">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">
+            Get In <span className="text-orange-500">Touch</span>
+          </h2>
+          <div className="w-16 h-1 bg-orange-500 mx-auto mb-6"></div>
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            Have a project in mind or want to discuss opportunities? I'd love to hear from you!
+          </p>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+          {/* Contact Information */}
+          <div className="space-y-8">
+            <div>
+              <h3 className="text-2xl font-semibold text-foreground mb-6">
+                Any Type Of Query & Discussion.
+              </h3>
+              <p className="text-muted-foreground leading-relaxed mb-8">
+                Whether you need help with embedded systems, web development, UI/UX design, 
+                or any other technical solution, I'm here to help bring your ideas to life.
+              </p>
+            </div>
+
+            <div className="space-y-6">
+              <div className="flex items-center space-x-4">
+                <div className="w-12 h-12 bg-orange-500/20 rounded-full flex items-center justify-center">
+                  <Mail className="w-6 h-6 text-orange-500" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-foreground">Email</h4>
+                  <a 
+                    href="mailto:samirmakvana71@gmail.com"
+                    className="text-muted-foreground hover:text-orange-500 transition-colors duration-300"
+                  >
+                    samirmakvana71@gmail.com
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-center space-x-4">
+                <div className="w-12 h-12 bg-orange-500/20 rounded-full flex items-center justify-center">
+                  <Phone className="w-6 h-6 text-orange-500" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-foreground">Phone</h4>
+                  <a 
+                    href="tel:+919537982855"
+                    className="text-muted-foreground hover:text-orange-500 transition-colors duration-300"
+                  >
+                    +91 95379 82855
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-center space-x-4">
+                <div className="w-12 h-12 bg-orange-500/20 rounded-full flex items-center justify-center">
+                  <Linkedin className="w-6 h-6 text-orange-500" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-foreground">LinkedIn</h4>
+                  <a 
+                    href="https://linkedin.com/in/samir-makwana-59265a286"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-orange-500 transition-colors duration-300"
+                  >
+                    samir-makwana-59265a286
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-center space-x-4">
+                <div className="w-12 h-12 bg-orange-500/20 rounded-full flex items-center justify-center">
+                  <Github className="w-6 h-6 text-orange-500" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-foreground">GitHub</h4>
+                  <a 
+                    href="https://github.com/sammakwana"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-orange-500 transition-colors duration-300"
+                  >
+                    sammakwana
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Contact Form */}
+          <div className="bg-card p-8 rounded-lg border border-border">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
+                  Your Name
+                </label>
+                <Input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className="w-full"
+                  placeholder="Enter your name"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
+                  Email Address
+                </label>
+                <Input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="w-full"
+                  placeholder="Enter your email"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
+                  Message
+                </label>
+                <Textarea
+                  id="message"
+                  name="message"
+                  rows={6}
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  className="w-full resize-none"
+                  placeholder="Tell me about your project or inquiry..."
+                />
+              </div>
+
+              <Button 
+                type="submit"
+                className="w-full bg-orange-500 hover:bg-orange-600 text-white py-3 text-lg transition-all duration-300 hover:scale-105"
+              >
+                Send Message
+              </Button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Contact;
