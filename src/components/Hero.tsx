@@ -110,13 +110,14 @@ const Hero = () => {
               {/* Gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 via-transparent to-blue-500/5"></div>
               
-              <div className="text-center relative z-10">
-                <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center shadow-2xl">
-                  <span className="text-3xl font-bold text-white">SM</span>
-                </div>
-                <div className="space-y-2">
-                  <p className="text-gray-300 font-medium">Profile Photo</p>
-                  <p className="text-gray-500 text-sm">Coming Soon</p>
+              <div className="relative z-10">
+                {/* Profile Image with circular mask */}
+                <div className="w-80 h-80 mx-auto rounded-full overflow-hidden border-4 border-orange-500/30 shadow-2xl">
+                  <img 
+                    src="https://i.postimg.cc/vmz2Xwnd/meee.jpg" 
+                    alt="Samir Makwana" 
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </div>
               
