@@ -1,4 +1,6 @@
 
+import { motion } from 'framer-motion';
+
 const Skills = () => {
   const skillCategories = [
     {
@@ -56,47 +58,99 @@ const Skills = () => {
     }
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
   return (
     <section id="skills" className="py-20 bg-background">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
           <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">
             My <span className="text-orange-500">Skills</span>
           </h2>
           <div className="w-16 h-1 bg-orange-500 mx-auto mb-6"></div>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
             A comprehensive overview of my technical expertise across various domains
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div 
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
           {skillCategories.map((category, index) => (
-            <div 
+            <motion.div 
               key={index} 
-              className="bg-card p-6 rounded-lg border border-border hover:shadow-lg transition-all duration-300 hover:scale-105"
+              className="bg-card/80 backdrop-blur-sm p-6 rounded-lg border border-border/50 hover:shadow-lg transition-all duration-300"
+              variants={itemVariants}
+              whileHover={{ scale: 1.02, y: -5 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
             >
               <h3 className="text-xl font-semibold text-foreground mb-6 text-center">
                 {category.title}
               </h3>
               <div className="space-y-4">
                 {category.skills.map((skill, skillIndex) => (
-                  <div key={skillIndex}>
+                  <motion.div 
+                    key={skillIndex}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ 
+                      duration: 0.5, 
+                      ease: "easeOut", 
+                      delay: skillIndex * 0.1 
+                    }}
+                  >
                     <div className="flex justify-between items-center mb-2">
                       <span className="text-sm font-medium text-foreground">{skill.name}</span>
                       <span className="text-sm text-muted-foreground">{skill.level}%</span>
                     </div>
                     <div className="w-full bg-muted rounded-full h-2">
-                      <div 
-                        className="bg-gradient-to-r from-orange-400 to-orange-600 h-2 rounded-full transition-all duration-500 ease-out"
-                        style={{ width: `${skill.level}%` }}
-                      ></div>
+                      <motion.div 
+                        className="bg-gradient-to-r from-orange-400 to-orange-600 h-2 rounded-full"
+                        initial={{ width: 0 }}
+                        whileInView={{ width: `${skill.level}%` }}
+                        viewport={{ once: true }}
+                        transition={{ 
+                          duration: 1, 
+                          ease: "easeOut", 
+                          delay: skillIndex * 0.1 + 0.3 
+                        }}
+                      />
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

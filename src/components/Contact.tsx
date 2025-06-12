@@ -1,5 +1,6 @@
 
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -96,103 +97,124 @@ const Contact = () => {
     });
   };
 
+  const contactInfo = [
+    {
+      icon: Mail,
+      title: "Email",
+      value: "samirmakvana71@gmail.com",
+      href: "mailto:samirmakvana71@gmail.com"
+    },
+    {
+      icon: Phone,
+      title: "Phone",
+      value: "+91 95379 82855",
+      href: "tel:+919537982855"
+    },
+    {
+      icon: Linkedin,
+      title: "LinkedIn",
+      value: "samir-makwana-59265a286",
+      href: "https://linkedin.com/in/samir-makwana-59265a286"
+    },
+    {
+      icon: Github,
+      title: "GitHub",
+      value: "sammakwana",
+      href: "https://github.com/sammakwana"
+    }
+  ];
+
   return (
     <section id="contact" className="py-20 bg-background">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
           <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">
             Get In <span className="text-orange-500">Touch</span>
           </h2>
           <div className="w-16 h-1 bg-orange-500 mx-auto mb-6"></div>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
             Have a project in mind or want to discuss opportunities? I'd love to hear from you!
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Contact Information */}
-          <div className="space-y-8">
+          <motion.div 
+            className="space-y-8"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+          >
             <div>
               <h3 className="text-2xl font-semibold text-foreground mb-6">
                 Any Type Of Query & Discussion.
               </h3>
-              <p className="text-muted-foreground leading-relaxed mb-8">
+              <p className="text-muted-foreground leading-relaxed mb-8 text-lg">
                 Whether you need help with embedded systems, web development, UI/UX design, 
                 or any other technical solution, I'm here to help bring your ideas to life.
               </p>
             </div>
 
             <div className="space-y-6">
-              <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-orange-500/20 rounded-full flex items-center justify-center">
-                  <Mail className="w-6 h-6 text-orange-500" />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-foreground">Email</h4>
-                  <a 
-                    href="mailto:samirmakvana71@gmail.com"
-                    className="text-muted-foreground hover:text-orange-500 transition-colors duration-300"
+              {contactInfo.map((info, index) => (
+                <motion.div 
+                  key={index}
+                  className="flex items-center space-x-4 group"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ 
+                    duration: 0.6, 
+                    ease: "easeOut", 
+                    delay: index * 0.1 + 0.3 
+                  }}
+                  whileHover={{ x: 10 }}
+                >
+                  <motion.div 
+                    className="w-12 h-12 bg-orange-500/20 rounded-full flex items-center justify-center group-hover:bg-orange-500/30 transition-colors duration-300"
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    transition={{ duration: 0.2, ease: "easeOut" }}
                   >
-                    samirmakvana71@gmail.com
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-orange-500/20 rounded-full flex items-center justify-center">
-                  <Phone className="w-6 h-6 text-orange-500" />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-foreground">Phone</h4>
-                  <a 
-                    href="tel:+919537982855"
-                    className="text-muted-foreground hover:text-orange-500 transition-colors duration-300"
-                  >
-                    +91 95379 82855
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-orange-500/20 rounded-full flex items-center justify-center">
-                  <Linkedin className="w-6 h-6 text-orange-500" />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-foreground">LinkedIn</h4>
-                  <a 
-                    href="https://linkedin.com/in/samir-makwana-59265a286"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-orange-500 transition-colors duration-300"
-                  >
-                    samir-makwana-59265a286
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-orange-500/20 rounded-full flex items-center justify-center">
-                  <Github className="w-6 h-6 text-orange-500" />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-foreground">GitHub</h4>
-                  <a 
-                    href="https://github.com/sammakwana"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-orange-500 transition-colors duration-300"
-                  >
-                    sammakwana
-                  </a>
-                </div>
-              </div>
+                    <info.icon className="w-6 h-6 text-orange-500" />
+                  </motion.div>
+                  <div>
+                    <h4 className="font-semibold text-foreground">{info.title}</h4>
+                    <a 
+                      href={info.href}
+                      target={info.href.startsWith('http') ? '_blank' : undefined}
+                      rel={info.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                      className="text-muted-foreground hover:text-orange-500 transition-colors duration-300"
+                    >
+                      {info.value}
+                    </a>
+                  </div>
+                </motion.div>
+              ))}
             </div>
-          </div>
+          </motion.div>
 
           {/* Contact Form */}
-          <div className="bg-card p-8 rounded-lg border border-border">
+          <motion.div 
+            className="bg-card/80 backdrop-blur-sm p-8 rounded-lg border border-border/50 hover:shadow-xl transition-all duration-300"
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
+          >
             <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, ease: "easeOut", delay: 0.5 }}
+              >
                 <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
                   Your Name
                 </label>
@@ -204,12 +226,17 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   disabled={isSubmitting}
-                  className="w-full"
+                  className="w-full transition-all duration-300 focus:ring-2 focus:ring-orange-500/50"
                   placeholder="Enter your name"
                 />
-              </div>
+              </motion.div>
 
-              <div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, ease: "easeOut", delay: 0.6 }}
+              >
                 <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
                   Email Address
                 </label>
@@ -221,12 +248,17 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   disabled={isSubmitting}
-                  className="w-full"
+                  className="w-full transition-all duration-300 focus:ring-2 focus:ring-orange-500/50"
                   placeholder="Enter your email"
                 />
-              </div>
+              </motion.div>
 
-              <div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, ease: "easeOut", delay: 0.7 }}
+              >
                 <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
                   Message
                 </label>
@@ -238,20 +270,29 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   disabled={isSubmitting}
-                  className="w-full resize-none"
+                  className="w-full resize-none transition-all duration-300 focus:ring-2 focus:ring-orange-500/50"
                   placeholder="Tell me about your project or inquiry..."
                 />
-              </div>
+              </motion.div>
 
-              <Button 
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full bg-orange-500 hover:bg-orange-600 text-white py-3 text-lg transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, ease: "easeOut", delay: 0.8 }}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
-                {isSubmitting ? 'Sending...' : 'Send Message'}
-              </Button>
+                <Button 
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white py-3 text-lg transition-all duration-300 shadow-lg hover:shadow-orange-500/25 disabled:opacity-50 disabled:cursor-not-allowed font-medium"
+                >
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                </Button>
+              </motion.div>
             </form>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
