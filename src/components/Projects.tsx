@@ -6,10 +6,10 @@ import { Button } from '@/components/ui/button';
 const Projects = () => {
   const projects = [
     {
-      name: "Distance Detector using ATmega32",
-      description: "Ultrasonic distance measurement system using ATmega32 microcontroller with LCD display",
-      tech: ["C", "ATmega32", "Embedded", "Sensors"],
-      github: "https://github.com/sammakwana/DISTANCE-DETECTER-USING-ATMEGA32",
+      name: "Embedded IoT System",
+      description: "Smart home automation using AVR microcontrollers with real-time sensor monitoring",
+      tech: ["C", "AVR", "IoT", "Sensors"],
+      github: "https://github.com/sammakwana",
       demo: "#"
     },
     {
