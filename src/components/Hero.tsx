@@ -11,24 +11,38 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center">
+    <section id="home" className="min-h-screen flex items-center justify-center bg-background">
       <div className="container mx-auto px-6 text-center">
-        <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
-          Hi, I'm <span className="text-orange-500">Samir</span>
-        </h1>
-        
-        <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-          A passionate tech enthusiast specializing in embedded systems, full-stack development, and cybersecurity
-        </p>
+        <div className="flex flex-col items-center space-y-8">
+          {/* Profile Image */}
+          <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-orange-500/20 shadow-lg">
+            <img 
+              src="https://i.postimg.cc/pV6G1Ph0/meee.jpg" 
+              alt="Samir Profile" 
+              className="w-full h-full object-cover"
+            />
+          </div>
 
-        <Button 
-          onClick={() => scrollToSection('projects')}
-          size="lg"
-          className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3"
-        >
-          <Github className="w-5 h-5 mr-2" />
-          View Projects
-        </Button>
+          {/* Text Content */}
+          <div>
+            <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
+              Hi, I'm <span className="text-orange-500">Samir</span>
+            </h1>
+            
+            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+              A passionate tech enthusiast specializing in embedded systems, full-stack development, and cybersecurity
+            </p>
+
+            <Button 
+              onClick={() => scrollToSection('projects')}
+              size="lg"
+              className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3"
+            >
+              <Github className="w-5 h-5 mr-2" />
+              View Projects
+            </Button>
+          </div>
+        </div>
       </div>
     </section>
   );
