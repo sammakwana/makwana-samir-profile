@@ -58,7 +58,7 @@ Feel free to reach out for collaborations or just a friendly chat:
 
 📧 Email: samirmakwana028@gmail.com
 
-🔗 LinkedIn: linkedin.com/in/samir-makwana-59265a286
+🔗 LinkedIn: [linkedin.com/in/samir-makwana-59265a286](https://www.linkedin.com/in/samir-makwana-59265a286)
 
 💻 GitHub: github.com/sammakwana
 
