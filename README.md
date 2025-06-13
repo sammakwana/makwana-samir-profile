@@ -31,13 +31,21 @@ This project is a showcase of who I am — a developer, designer, and embedded s
 
 makwana-samir-profile/
 ├── public/
+
 ├── src/
+
 │ ├── components/ # All reusable UI components
+
 │ ├── pages/ # Page components (Home, Contact, etc.)
+
 │ ├── assets/ # Images and media files
+
 │ └── App.jsx # Main app file
+
 ├── tailwind.config.js
+
 ├── package.json
+
 └── README.md
 
 
