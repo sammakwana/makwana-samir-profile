@@ -6,17 +6,17 @@ import { Button } from '@/components/ui/button';
 const Projects = () => {
   const projects = [
     {
-      name: "Embedded IoT System",
-      description: "Smart home automation using AVR microcontrollers with real-time sensor monitoring",
-      tech: ["C", "AVR", "IoT", "Sensors"],
-      github: "https://github.com/sammakwana",
+      name: "DISTANCE-DETECTER-USING-ATMEGA32",
+      description: "A real-time embedded system using ATmega32 microcontroller and HC-SR04 ultrasonic sensor to measure distance. Output is shown on a 16x2 I2C LCD. Built for precise and low-power object detection.",
+      tech: ["C", "AVR", "ATmega32", "Sensors"],
+      github: "https://github.com/sammakwana/DISTANCE-DETECTER-USING-ATMEGA32",
       demo: "#"
     },
     {
-      name: "Web Development Portfolio",
-      description: "Full-stack web application with modern UI/UX design and responsive layout",
-      tech: ["Python", "Django", "HTML", "CSS"],
-      github: "https://github.com/sammakwana",
+      name: "Personal Portfolio Website",
+      description: "A modern, responsive personal portfolio website built with HTML, CSS, JavaScript, and PHP. Features include smooth scroll, interactive sections, and a working contact form via EmailJS. Deployed using Lovable.",
+      tech: ["HTML", "CSS", "JavaScript", "PHP"],
+      github: "https://github.com/sammakwana/makwana-samir-profile",
       demo: "#"
     },
     {
@@ -40,32 +40,32 @@ const Projects = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3
+        staggerChildren: 0.1,
+        delayChildren: 0.1
       }
     }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" }
+      transition: { duration: 0.4, ease: "easeOut" }
     }
   };
 
   return (
-    <section id="projects" className="py-20 bg-muted/50">
+    <section id="projects" className="py-16 bg-muted/50">
       <div className="container mx-auto px-6">
         <motion.div 
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 50 }}
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
             My <span className="text-orange-500">Projects</span>
           </h2>
           <div className="w-16 h-1 bg-orange-500 mx-auto mb-6"></div>
@@ -75,7 +75,7 @@ const Projects = () => {
         </motion.div>
 
         <motion.div 
-          className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-12"
+          className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto mb-10"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -84,16 +84,14 @@ const Projects = () => {
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              className="group relative bg-card/40 backdrop-blur-md border border-border/30 rounded-xl p-6 hover:shadow-xl hover:shadow-orange-500/10 transition-all duration-300"
+              className="group relative bg-card/40 backdrop-blur-sm border border-border/30 rounded-xl p-6 hover:shadow-lg hover:shadow-orange-500/10 transition-all duration-300"
               variants={itemVariants}
-              whileHover={{ scale: 1.03, y: -8 }}
-              transition={{ duration: 0.3, ease: "easeOut" }}
+              whileHover={{ scale: 1.02, y: -4 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
             >
-              {/* Glassmorphism background */}
               <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 via-transparent to-blue-500/5 rounded-xl" />
               <div className="absolute inset-0 bg-card/20 backdrop-blur-sm rounded-xl border border-white/10" />
               
-              {/* Content */}
               <div className="relative z-10">
                 <div className="flex items-start justify-between mb-4">
                   <h3 className="text-xl font-semibold text-foreground group-hover:text-orange-500 transition-colors duration-300">
@@ -105,7 +103,7 @@ const Projects = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="p-2 rounded-lg bg-muted/50 hover:bg-orange-500/20 text-muted-foreground hover:text-orange-500 transition-all duration-300"
-                      whileHover={{ scale: 1.1, rotate: 5 }}
+                      whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
                     >
                       <Github className="w-4 h-4" />
@@ -113,7 +111,7 @@ const Projects = () => {
                     <motion.a
                       href={project.demo}
                       className="p-2 rounded-lg bg-muted/50 hover:bg-orange-500/20 text-muted-foreground hover:text-orange-500 transition-all duration-300"
-                      whileHover={{ scale: 1.1, rotate: 5 }}
+                      whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
                     >
                       <ExternalLink className="w-4 h-4" />
@@ -134,9 +132,9 @@ const Projects = () => {
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
                       transition={{ 
-                        duration: 0.4, 
+                        duration: 0.3, 
                         ease: "easeOut", 
-                        delay: techIndex * 0.1 
+                        delay: techIndex * 0.05 
                       }}
                       whileHover={{ scale: 1.05 }}
                     >
@@ -151,10 +149,10 @@ const Projects = () => {
 
         <motion.div 
           className="text-center"
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
         >
           <motion.div
             whileHover={{ scale: 1.05 }}

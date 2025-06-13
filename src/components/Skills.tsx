@@ -13,12 +13,12 @@ const Skills = () => {
       ]
     },
     {
-      title: "Web & UI/UX",
+      title: "Web Development",
       skills: [
         { name: "HTML", level: 95 },
         { name: "CSS", level: 90 },
-        { name: "Django", level: 85 },
-        { name: "UI/UX Design", level: 80 }
+        { name: "JavaScript", level: 85 },
+        { name: "PHP", level: 80 }
       ]
     },
     {
@@ -63,32 +63,32 @@ const Skills = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.1
+        staggerChildren: 0.1,
+        delayChildren: 0.05
       }
     }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" }
+      transition: { duration: 0.4, ease: "easeOut" }
     }
   };
 
   return (
-    <section id="skills" className="py-20 bg-background">
+    <section id="skills" className="py-16 bg-background">
       <div className="container mx-auto px-6">
         <motion.div 
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 50 }}
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
             My <span className="text-orange-500">Skills</span>
           </h2>
           <div className="w-16 h-1 bg-orange-500 mx-auto mb-6"></div>
@@ -98,7 +98,7 @@ const Skills = () => {
         </motion.div>
 
         <motion.div 
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -109,8 +109,8 @@ const Skills = () => {
               key={index} 
               className="bg-card/80 backdrop-blur-sm p-6 rounded-lg border border-border/50 hover:shadow-lg transition-all duration-300"
               variants={itemVariants}
-              whileHover={{ scale: 1.02, y: -5 }}
-              transition={{ duration: 0.3, ease: "easeOut" }}
+              whileHover={{ scale: 1.02, y: -3 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
             >
               <h3 className="text-xl font-semibold text-foreground mb-6 text-center">
                 {category.title}
@@ -119,13 +119,13 @@ const Skills = () => {
                 {category.skills.map((skill, skillIndex) => (
                   <motion.div 
                     key={skillIndex}
-                    initial={{ opacity: 0, x: -20 }}
+                    initial={{ opacity: 0, x: -15 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ 
-                      duration: 0.5, 
+                      duration: 0.4, 
                       ease: "easeOut", 
-                      delay: skillIndex * 0.1 
+                      delay: skillIndex * 0.05 
                     }}
                   >
                     <div className="flex justify-between items-center mb-2">
@@ -139,9 +139,9 @@ const Skills = () => {
                         whileInView={{ width: `${skill.level}%` }}
                         viewport={{ once: true }}
                         transition={{ 
-                          duration: 1, 
+                          duration: 0.8, 
                           ease: "easeOut", 
-                          delay: skillIndex * 0.1 + 0.3 
+                          delay: skillIndex * 0.05 + 0.2 
                         }}
                       />
                     </div>
