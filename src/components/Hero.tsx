@@ -1,7 +1,6 @@
-
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { Github, Linkedin, Mail, Download } from 'lucide-react';
+import { Github, Linkedin, Mail, Download, ExternalLink } from 'lucide-react';
 
 const Hero = () => {
   const scrollToSection = (sectionId: string) => {
@@ -9,6 +8,19 @@ const Hero = () => {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+  };
+
+  const handleDownloadResume = () => {
+    const link = document.createElement('a');
+    link.href = 'https://i.postimg.cc/Hn04f6sQ/My-Resume.jpg';
+    link.download = 'Samir_Makwana_Resume.jpg';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  const handleViewResume = () => {
+    window.open('https://i.postimg.cc/Hn04f6sQ/My-Resume.jpg', '_blank');
   };
 
   const containerVariants = {
@@ -165,12 +177,35 @@ const Hero = () => {
               transition={{ duration: 0.2, ease: "easeOut" }}
             >
               <Button 
+                onClick={handleViewResume}
                 variant="outline" 
                 size="lg"
                 className="border-2 border-orange-500/50 text-orange-400 hover:bg-orange-500/10 hover:border-orange-400 px-8 py-4 text-lg transition-all duration-300 backdrop-blur-sm font-medium rounded-xl"
               >
-                <Download className="w-5 h-5 mr-2" />
+                <ExternalLink className="w-5 h-5 mr-2" />
                 View Resume
+              </Button>
+            </motion.div>
+          </motion.div>
+
+          {/* Download Resume Button */}
+          <motion.div 
+            className="flex justify-center lg:justify-start"
+            variants={itemVariants}
+          >
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
+            >
+              <Button 
+                onClick={handleDownloadResume}
+                variant="outline" 
+                size="lg"
+                className="border-2 border-blue-500/50 text-blue-400 hover:bg-blue-500/10 hover:border-blue-400 px-8 py-4 text-lg transition-all duration-300 backdrop-blur-sm font-medium rounded-xl"
+              >
+                <Download className="w-5 h-5 mr-2" />
+                Download Resume
               </Button>
             </motion.div>
           </motion.div>
