@@ -29,3 +29,33 @@ This project is a showcase of who I am — a developer, designer, and embedded s
 
 ## 📂 Project Structure
 
+makwana-samir-profile/
+├── public/
+├── src/
+│ ├── components/ # All reusable UI components
+│ ├── pages/ # Page components (Home, Contact, etc.)
+│ ├── assets/ # Images and media files
+│ └── App.jsx # Main app file
+├── tailwind.config.js
+├── package.json
+└── README.md
+
+
+🧑‍💼 About Me
+I’m Samir Makwana — passionate about Web Development, UI/UX Design, and Embedded Systems.
+I love creating user-friendly digital experiences and building solutions that solve real-world problems.
+
+📬 Contact
+Feel free to reach out for collaborations or just a friendly chat:
+
+📧 Email: samirmakwana028@gmail.com
+
+🔗 LinkedIn: linkedin.com/in/samir-makwana-59265a286
+
+💻 GitHub: github.com/sammakwana
+
+📜 License
+This project is licensed under the MIT License.
+Feel free to fork, modify, and use it for your own projects.
+
+Made with ❤️ by Samir Makwana
