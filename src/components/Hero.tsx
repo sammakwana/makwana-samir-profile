@@ -15,15 +15,15 @@ const Hero = () => {
 
   const handleDownloadResume = () => {
     const link = document.createElement('a');
-    link.href = 'https://i.postimg.cc/Hn04f6sQ/My-Resume.jpg';
-    link.download = 'Samir_Makwana_Resume.jpg';
+    link.href = '/lovable-uploads/aa7ca240-2b2f-47e1-b781-dbb5cc22c8e5.png';
+    link.download = 'Samir_Makwana_Resume.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
   };
 
   const handleViewResume = () => {
-    navigate('/view-resume');
+    window.open('/view-resume', '_blank');
   };
 
   const containerVariants = {
