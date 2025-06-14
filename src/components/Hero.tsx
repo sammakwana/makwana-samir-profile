@@ -1,8 +1,11 @@
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Github, Linkedin, Mail, Download, ExternalLink } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const Hero = () => {
+  const navigate = useNavigate();
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -20,7 +23,7 @@ const Hero = () => {
   };
 
   const handleViewResume = () => {
-    window.open('https://i.postimg.cc/Hn04f6sQ/My-Resume.jpg', '_blank');
+    navigate('/view-resume');
   };
 
   const containerVariants = {
