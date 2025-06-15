@@ -131,12 +131,13 @@ const Skills = () => {
               <h3 className="text-xl font-semibold text-foreground mb-6 text-center">
                 {category.title}
               </h3>
-              <div className="space-y-4">
+              <div className="space-y-5">
                 {category.skills.map((skill, skillIndex) => {
                   const IconComponent = skill.icon;
                   return (
                     <motion.div 
                       key={skillIndex}
+                      className="w-full"
                       initial={{ opacity: 0, x: -10 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
@@ -153,23 +154,26 @@ const Skills = () => {
                             strokeWidth={1.5}
                           />
                         </div>
-                        <div className="flex-1 flex justify-between items-center">
-                          <span className="text-sm font-medium text-foreground">{skill.name}</span>
-                          <span className="text-sm text-muted-foreground">{skill.level}%</span>
+                        <div className="flex-1 min-w-0 flex justify-between items-center">
+                          <span className="text-sm font-medium text-foreground truncate">{skill.name}</span>
+                          <span className="text-sm text-muted-foreground ml-2 flex-shrink-0">{skill.level}%</span>
                         </div>
                       </div>
-                      <div className="w-full bg-muted rounded-full h-2 ml-9">
-                        <motion.div 
-                          className="bg-gradient-to-r from-orange-400 to-orange-600 h-2 rounded-full"
-                          initial={{ width: 0 }}
-                          whileInView={{ width: `${skill.level}%` }}
-                          viewport={{ once: true }}
-                          transition={{ 
-                            duration: 0.6, 
-                            ease: "easeOut", 
-                            delay: skillIndex * 0.02 + 0.1 
-                          }}
-                        />
+                      <div className="w-full pl-9">
+                        <div className="w-full bg-muted rounded-full h-2 overflow-hidden">
+                          <motion.div 
+                            className="bg-gradient-to-r from-orange-400 to-orange-600 h-full rounded-full"
+                            style={{ maxWidth: '100%', boxSizing: 'border-box' }}
+                            initial={{ width: 0 }}
+                            whileInView={{ width: `${Math.min(skill.level, 100)}%` }}
+                            viewport={{ once: true }}
+                            transition={{ 
+                              duration: 0.6, 
+                              ease: "easeOut", 
+                              delay: skillIndex * 0.02 + 0.1 
+                            }}
+                          />
+                        </div>
                       </div>
                     </motion.div>
                   );
