@@ -10,7 +10,7 @@ const ViewResume = () => {
   const handleDownloadResume = () => {
     const link = document.createElement('a');
     link.href = '/lovable-uploads/01f6cbfb-2876-4206-8e4d-917b58d19ded.png';
-    link.download = 'Samir_Makwana_Resume.pdf';
+    link.download = 'Samir_Makwana_Resume.jpg';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
