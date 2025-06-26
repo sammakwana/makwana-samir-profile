@@ -15,7 +15,7 @@ const Hero = () => {
 
   const handleDownloadResume = () => {
     const link = document.createElement('a');
-    link.href = '/lovable-uploads/aa7ca240-2b2f-47e1-b781-dbb5cc22c8e5.png';
+    link.href = '/lovable-uploads/01f6cbfb-2876-4206-8e4d-917b58d19ded.png';
     link.download = 'Samir_Makwana_Resume.pdf';
     document.body.appendChild(link);
     link.click();
@@ -259,7 +259,7 @@ const Hero = () => {
                   transition={{ duration: 0.3, ease: "easeOut" }}
                 >
                   <img 
-                    src="https://i.postimg.cc/vmz2Xwnd/meee.jpg" 
+                    src="/lovable-uploads/364a834d-85c1-448b-83a1-3487e0c62c2f.png" 
                     alt="Samir Makwana" 
                     className="w-full h-full object-cover"
                   />

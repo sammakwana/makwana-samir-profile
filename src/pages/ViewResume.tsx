@@ -9,7 +9,7 @@ const ViewResume = () => {
 
   const handleDownloadResume = () => {
     const link = document.createElement('a');
-    link.href = '/lovable-uploads/aa7ca240-2b2f-47e1-b781-dbb5cc22c8e5.png';
+    link.href = '/lovable-uploads/01f6cbfb-2876-4206-8e4d-917b58d19ded.png';
     link.download = 'Samir_Makwana_Resume.pdf';
     document.body.appendChild(link);
     link.click();
@@ -54,7 +54,7 @@ const ViewResume = () => {
         >
           <div className="bg-white rounded-lg shadow-2xl overflow-hidden">
             <img 
-              src="/lovable-uploads/aa7ca240-2b2f-47e1-b781-dbb5cc22c8e5.png"
+              src="/lovable-uploads/01f6cbfb-2876-4206-8e4d-917b58d19ded.png"
               alt="Samir Makwana Resume"
               className="w-full h-auto"
               style={{ imageRendering: 'crisp-edges', maxWidth: '100%', height: 'auto' }}
