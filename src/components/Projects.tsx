@@ -1,10 +1,16 @@
-
 import { motion } from 'framer-motion';
 import { Github, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Projects = () => {
   const projects = [
+    {
+      name: "WhatsApp AI Agent",
+      description: "A smart AI chatbot integrated with WhatsApp using Twilio API, OpenAI GPT, and Flask backend to simulate real-time assistant interactions. Features real-time conversational AI over WhatsApp, uses GPT to respond smartly to messages, Flask server with webhook integration, Twilio sandbox setup for testing, and easy deployment and customization.",
+      tech: ["Python", "Flask", "OpenAI API", "Twilio", "Ngrok"],
+      github: "https://github.com/sammakwana/WhatsApp-AI-Agent",
+      demo: "#"
+    },
     {
       name: "DISTANCE-DETECTER-USING-ATMEGA32",
       description: "A real-time embedded system using ATmega32 microcontroller and HC-SR04 ultrasonic sensor to measure distance. Output is shown on a 16x2 I2C LCD. Built for precise and low-power object detection.",
