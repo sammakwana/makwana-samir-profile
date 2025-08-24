@@ -12,6 +12,27 @@ const Projects = () => {
       demo: "#"
     },
     {
+      name: "Smart HR Onboarding (Odoo Hackathon 2025)",
+      description: "A hackathon project that automates employee onboarding for remote teams. It includes modular ERP design, task assignments, and progress tracking, styled like Odoo's ecosystem.",
+      tech: ["Supabase", "Lovable.ai", "Odoo-style ERP"],
+      github: "https://github.com/sammakwana/odoo-hackathon-2025",
+      demo: "#"
+    },
+    {
+      name: "Dynamical Mass Estimation of Galaxy Clusters",
+      description: "Used virial theorem and velocity dispersion analysis to estimate the dynamical mass of galaxy clusters from simulated galaxy data. Includes plots, code, and astrophysical interpretations.",
+      tech: ["Python", "Jupyter", "Astrophysics"],
+      github: "https://github.com/sammakwana/galaxy-cluster-mass-estimation",
+      demo: "#"
+    },
+    {
+      name: "AI Auto News Digest",
+      description: "An AI-powered news summarizer that automatically collects, processes, and generates concise digests of trending news. Designed to help users stay updated efficiently.",
+      tech: ["Python", "NLP", "AI"],
+      github: "https://github.com/sammakwana/AI-Auto-News-Digest",
+      demo: "#"
+    },
+    {
       name: "DISTANCE-DETECTER-USING-ATMEGA32",
       description: "A real-time embedded system using ATmega32 microcontroller and HC-SR04 ultrasonic sensor to measure distance. Output is shown on a 16x2 I2C LCD. Built for precise and low-power object detection.",
       tech: ["C", "AVR", "ATmega32", "Sensors"],
