@@ -259,7 +259,7 @@ const Hero = () => {
                   transition={{ duration: 0.3, ease: "easeOut" }}
                 >
                   <img 
-                    src="/lovable-uploads/364a834d-85c1-448b-83a1-3487e0c62c2f.png" 
+                    src="/lovable-uploads/profile-image.jpeg" 
                     alt="Samir Makwana" 
                     className="w-full h-full object-cover"
                   />
